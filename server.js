@@ -31,6 +31,14 @@ const __dirname = path.resolve()
 console.log(__dirname)
 
 // static serve way
+app.use("/dashboard", (req, res, next) => {
+  try {
+    res.redirect("/")
+  } catch (error) {
+    next(error)
+  }
+})
+
 
 app.use(express.static(path.join(__dirname, "/client/build")))
 app.use("/", (req, res, next) => {

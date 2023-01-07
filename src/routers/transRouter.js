@@ -59,6 +59,7 @@ router.delete ("/", async(req, res, next)=> {
     const {authorization} = req.headers
 
     const result = await deleteTransByIds(req.body, authorization)
+    console.log(result)
 
     result?.deletedCount ?
     res.json({

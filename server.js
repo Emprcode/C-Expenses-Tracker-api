@@ -26,6 +26,20 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/transaction", userAuth, transRouter);
 
 //transtaction router to handle all transaction related CRUD operations
+import path from 'path'
+const __dirname = path.resolve()
+console.log(__dirname)
+
+// static serve way
+
+app.use(express.static(path.join(__dirname, "/client/build")))
+app.use("/", (req, res, next) => {
+  try {
+    res.sendFile(path.join(__dirname, "/index.html"))
+  } catch (error) {
+    next(error)
+  }
+})
 
 // uncought router request
 

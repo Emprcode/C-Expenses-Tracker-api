@@ -1,0 +1,31 @@
+### checking if the server is live
+GET http://localhost:8000/
+
+# ================ USER API
+### post new user
+POST http://localhost:8000/api/v1/user
+Content-Type: application/json
+
+{
+    "name": "Prem Acharay",
+    "email": "a@a1.com",
+    "pin": 1234
+}
+
+
+
+# ================ TRANSACTION API
+### get users transactions
+GET  http://localhost:8000/api/v1/transaction
+Authorization: 639e379c5681b7db8b78c5c9
+
+### add users transactions
+POST   http://localhost:8000/api/v1/transaction
+Content-Type: application/json
+Authorization: 639e379c5681b7db8b78c5c9
+
+{
+    "type": "expenses",
+    "name" : "shopping",
+    "amount": 44
+}
